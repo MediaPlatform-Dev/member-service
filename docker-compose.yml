@@ -7,6 +7,7 @@ services:
       - MYSQL_DATABASE=member_service_db
       - MYSQL_ROOT_HOST=%
       - MYSQL_ROOT_PASSWORD=root
+      - TZ='Asia/Seoul'
     ports:
       - 3306:3306
     volumes:
@@ -24,10 +25,9 @@ services:
       - 8081:8081
     container_name: member_service
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/member_service_db?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/member_service_db
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
-#      SPRING_PROFILES_ACTIVE: dev
     networks:
       - member_service_network
 #  redis:
