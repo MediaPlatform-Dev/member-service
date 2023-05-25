@@ -9,4 +9,6 @@ import org.mapstruct.ReportingPolicy;
 public interface MemberMapper {
 
     Member toEntity(MemberDto dto);
+
+    MemberDto toDto(Member member);
 }

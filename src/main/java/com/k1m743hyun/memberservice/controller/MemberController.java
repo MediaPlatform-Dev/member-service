@@ -1,7 +1,6 @@
 package com.k1m743hyun.memberservice.controller;
 
 import com.k1m743hyun.memberservice.domain.dto.MemberDto;
-import com.k1m743hyun.memberservice.domain.entity.Member;
 import com.k1m743hyun.memberservice.service.MemberService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -27,12 +26,12 @@ public class MemberController {
     }
 
     @GetMapping("/{memberId}")
-    public Member getMember(@PathVariable String memberId) {
+    public MemberDto getMember(@PathVariable String memberId) {
         return memberService.getMember(memberId);
     }
 
     @GetMapping
-    public List<Member> getMembers() {
+    public List<MemberDto> getMembers() {
         return memberService.getMembers();
     }
 }

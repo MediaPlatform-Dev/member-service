@@ -19,16 +19,19 @@ public class MemberService {
 
     @Transactional
     public void join(MemberDto requestDto) {
-        Member member = memberMapper.toEntity(requestDto);
-        memberRepository.save(member);
+        memberRepository.save(memberMapper.toEntity(requestDto));
     }
 
-    public Member getMember(String memberId) {
-        return memberRepository.findById(memberId)
+    public MemberDto getMember(String memberId) {
+        Member member = memberRepository.findById(memberId)
             .orElseThrow();
+        return memberMapper.toDto(member);
     }
 
-    public List<Member> getMembers() {
-        return memberRepository.findAll();
+    public List<MemberDto> getMembers() {
+        return memberRepository.findAll()
+            .stream()
+            .map(memberMapper::toDto)
+            .toList();
     }
 }
