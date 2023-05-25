@@ -26,12 +26,12 @@ public class MemberController {
     }
 
     @GetMapping("/{memberId}")
-    public Member one(@PathVariable String memberId) {
-        return memberService.findAMember(memberId);
+    public Member getMember(@PathVariable String memberId) {
+        return memberService.getMember(memberId);
     }
 
     @GetMapping
-    public List<Member> all() {
-        return memberService.findMembers();
+    public List<Member> getMembers() {
+        return memberService.getMembers();
     }
 }
