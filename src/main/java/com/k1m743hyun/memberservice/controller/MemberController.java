@@ -22,13 +22,12 @@ public class MemberController {
 
     @PostMapping("/new")
     public void create(@RequestBody Member member) {
-        log.info(member.getName());
         memberService.join(member);
     }
 
-    @GetMapping("/{id}")
-    public Member one(@PathVariable Long id) {
-        return memberService.findAMember(id);
+    @GetMapping("/{member_id}")
+    public Member one(@PathVariable String member_id) {
+        return memberService.findAMember(member_id);
     }
 
     @GetMapping("/all")

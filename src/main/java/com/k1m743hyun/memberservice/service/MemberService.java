@@ -6,6 +6,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 @Transactional(readOnly = true)
@@ -19,8 +20,8 @@ public class MemberService {
         memberRepository.save(member);
     }
 
-    public Member findAMember(Long id) {
-        return memberRepository.findById(id)
+    public Member findAMember(String member_id) {
+        return memberRepository.findById(member_id)
             .orElseThrow();
     }
 

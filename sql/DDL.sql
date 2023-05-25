@@ -3,7 +3,7 @@ CREATE DATABASE member_service;
 USE member_service;
 DROP TABLE IF EXISTS member CASCADE;
 CREATE TABLE member (
-    id BIGINT AUTO_INCREMENT,
-    name VARCHAR(255),
-    PRIMARY KEY (id)
+    member_id VARCHAR(255),
+    member_name VARCHAR(255),
+    PRIMARY KEY (member_id)
 );
