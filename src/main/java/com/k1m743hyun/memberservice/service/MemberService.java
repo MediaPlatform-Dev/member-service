@@ -20,8 +20,8 @@ public class MemberService {
         memberRepository.save(member);
     }
 
-    public Member findAMember(String member_id) {
-        return memberRepository.findById(member_id)
+    public Member findAMember(String memberId) {
+        return memberRepository.findById(memberId)
             .orElseThrow();
     }
 

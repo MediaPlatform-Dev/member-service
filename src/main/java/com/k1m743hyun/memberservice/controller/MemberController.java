@@ -25,9 +25,9 @@ public class MemberController {
         memberService.join(member);
     }
 
-    @GetMapping("/{member_id}")
-    public Member one(@PathVariable String member_id) {
-        return memberService.findAMember(member_id);
+    @GetMapping("/{memberId}")
+    public Member one(@PathVariable String memberId) {
+        return memberService.findAMember(memberId);
     }
 
     @GetMapping("/all")
