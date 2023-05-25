@@ -8,14 +8,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
-@Transactional
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    public Member findOneMember(Long id) {
-        return memberRepository.findById(id).orElseThrow();
+    @Transactional
+    public void join(Member member) {
+        memberRepository.save(member);
+    }
+
+    public Member findAMember(Long id) {
+        return memberRepository.findById(id)
+            .orElseThrow();
     }
 
     public List<Member> findMembers() {
