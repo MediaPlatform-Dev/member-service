@@ -1,6 +1,7 @@
 package com.k1m743hyun.memberservice.controller;
 
-import com.k1m743hyun.memberservice.domain.Member;
+import com.k1m743hyun.memberservice.domain.dto.MemberDto;
+import com.k1m743hyun.memberservice.domain.entity.Member;
 import com.k1m743hyun.memberservice.service.MemberService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -21,8 +22,8 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping
-    public void create(@RequestBody Member member) {
-        memberService.join(member);
+    public void create(@RequestBody MemberDto requestDto) {
+        memberService.join(requestDto);
     }
 
     @GetMapping("/{memberId}")
