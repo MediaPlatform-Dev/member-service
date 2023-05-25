@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/member")
+@RequestMapping("/members")
 public class MemberController {
 
     private final MemberService memberService;
 
-    @PostMapping("/new")
+    @PostMapping
     public void create(@RequestBody Member member) {
         memberService.join(member);
     }
@@ -30,7 +30,7 @@ public class MemberController {
         return memberService.findAMember(memberId);
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public List<Member> all() {
         return memberService.findMembers();
     }
