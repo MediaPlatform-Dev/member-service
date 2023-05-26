@@ -1,6 +1,7 @@
 package com.k1m743hyun.memberservice.controller;
 
 import com.k1m743hyun.memberservice.domain.dto.MemberDto;
+import com.k1m743hyun.memberservice.domain.dto.OrderDto;
 import com.k1m743hyun.memberservice.service.MemberService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -33,5 +34,10 @@ public class MemberController {
     @GetMapping
     public List<MemberDto> getMembers() {
         return memberService.getMembers();
+    }
+
+    @GetMapping("/orders")
+    public List<OrderDto> getOrders() {
+        return memberService.getOrders();
     }
 }

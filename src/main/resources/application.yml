@@ -2,6 +2,8 @@ server:
   port: 8081
 
 spring:
+  application:
+    name: "member"
   datasource:
     url: ${DB_CONNECTION_URL}
     username: ${DB_USER}
@@ -10,3 +12,24 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
+  cloud:
+    openfeign:
+      client:
+        config:
+          order:
+            url: "order:8081"
+            logger-level: FULL
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude:
+          include: '*'
+  tracing:
+    sampling:
+      probability: 1.0
+logging:
+  pattern:
+    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
+  level:
+    com.k1m743hyun.memberservice: DEBUG
