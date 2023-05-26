@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class OrderDto {
 
-    private Long orderId;
-    private String memberId;
+    private Long orderNum;
+    private int memberNum;
 }

@@ -16,29 +16,29 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class MemberService {
 
-    private final MemberRepository memberRepository;
-    private final MemberMapper memberMapper;
-    private final OrderFeignClient orderFeignClient;
+    private final MemberRepository repository;
+    private final MemberMapper mapper;
+    private final OrderFeignClient feignClient;
 
     @Transactional
     public void join(MemberDto requestDto) {
-        memberRepository.save(memberMapper.toEntity(requestDto));
+        repository.save(mapper.toEntity(requestDto));
     }
 
     public MemberDto getMember(String memberId) {
-        Member member = memberRepository.findById(memberId)
+        Member member = repository.findById(memberId)
             .orElseThrow(() -> new RuntimeException("Couldn't find memberId: " + memberId));
-        return memberMapper.toDto(member);
+        return mapper.toDto(member);
     }
 
     public List<MemberDto> getMembers() {
-        return memberRepository.findAll()
+        return repository.findAll()
             .stream()
-            .map(memberMapper::toDto)
+            .map(mapper::toDto)
             .toList();
     }
 
     public List<OrderDto> getOrders() {
-        return orderFeignClient.getOrders();
+        return feignClient.getOrders();
     }
 }

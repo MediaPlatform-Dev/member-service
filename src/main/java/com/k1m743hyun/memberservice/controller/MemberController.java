@@ -19,25 +19,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/members")
 public class MemberController {
 
-    private final MemberService memberService;
+    private final MemberService service;
 
     @PostMapping
     public void create(@RequestBody MemberDto requestDto) {
-        memberService.join(requestDto);
+        service.join(requestDto);
     }
 
     @GetMapping("/{memberId}")
     public MemberDto getMember(@PathVariable String memberId) {
-        return memberService.getMember(memberId);
+        return service.getMember(memberId);
     }
 
     @GetMapping
     public List<MemberDto> getMembers() {
-        return memberService.getMembers();
+        return service.getMembers();
     }
 
     @GetMapping("/orders")
     public List<OrderDto> getOrders() {
-        return memberService.getOrders();
+        return service.getOrders();
     }
 }
