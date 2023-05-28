@@ -21,14 +21,15 @@ public class MemberService {
     private final OrderFeignClient feignClient;
 
     @Transactional
-    public void join(MemberDto requestDto) {
-        repository.save(mapper.toEntity(requestDto));
+    public void createMember(MemberDto dto) {
+        repository.save(mapper.toEntity(dto));
     }
 
-    public MemberDto getMember(String memberId) {
-        Member member = repository.findById(memberId)
-            .orElseThrow(() -> new RuntimeException("Couldn't find memberId: " + memberId));
-        return mapper.toDto(member);
+    public MemberDto getMember(String id) {
+
+        Member entity = repository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Couldn't find memberId: " + id));
+        return mapper.toDto(entity);
     }
 
     public List<MemberDto> getMembers() {
@@ -36,6 +37,11 @@ public class MemberService {
             .stream()
             .map(mapper::toDto)
             .toList();
+    }
+
+    @Transactional
+    public void deleteMember(MemberDto dto) {
+        repository.delete(mapper.toEntity(dto));
     }
 
     public List<OrderDto> getOrders() {
