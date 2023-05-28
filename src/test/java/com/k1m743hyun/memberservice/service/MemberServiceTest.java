@@ -1,6 +1,8 @@
 package com.k1m743hyun.memberservice.service;
 
+import com.k1m743hyun.memberservice.domain.mapper.MemberMapper;
 import com.k1m743hyun.memberservice.repository.MemberRepository;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -13,42 +15,55 @@ import static org.junit.jupiter.api.Assertions.*;
 class MemberServiceTest {
 
     @InjectMocks
-    MemberService memberService;
+    MemberService service;
 
     @Mock
-    MemberRepository memberRepository;
+    MemberRepository repository;
 
+    @Mock
+    MemberMapper mapper;
 
     @Test
-    void join() {
+    @DisplayName("")
+    void createMember() {
 
         // given
 
         // when
 
         // then
-
     }
 
     @Test
-    void findAMember() {
+    @DisplayName("")
+    void getMember() {
 
         // given
 
         // when
 
         // then
-
     }
 
     @Test
-    void findMembers() {
+    @DisplayName("")
+    void getMembers() {
 
         // given
 
         // when
 
         // then
+    }
 
+    @Test
+    @DisplayName("")
+    void deleteMember() {
+
+        // given
+
+        // when
+
+        // then
     }
 }
