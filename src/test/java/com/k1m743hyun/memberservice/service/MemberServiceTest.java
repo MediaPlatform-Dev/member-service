@@ -24,7 +24,7 @@ class MemberServiceTest {
     MemberMapper mapper;
 
     @Test
-    @DisplayName("")
+    @DisplayName("createMember 테스트")
     void createMember() {
 
         // given
@@ -35,7 +35,7 @@ class MemberServiceTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("getMember 테스트")
     void getMember() {
 
         // given
@@ -46,7 +46,7 @@ class MemberServiceTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("getMembers 테스트")
     void getMembers() {
 
         // given
@@ -57,7 +57,7 @@ class MemberServiceTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("deleteMember 테스트")
     void deleteMember() {
 
         // given
