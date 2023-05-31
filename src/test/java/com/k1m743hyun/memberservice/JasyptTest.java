@@ -26,7 +26,7 @@ public class JasyptTest {
 
         // when
         String encryptText = encryptor.encrypt(plainText);
-        System.out.printf(">>> ENC(%s)%s", encryptText, System.lineSeparator());
+        System.out.printf(">>> ENC(%s)%n", encryptText);
 
         // then
         assertThat(encryptText).isNotNull().isNotBlank();
@@ -40,7 +40,7 @@ public class JasyptTest {
 
         // when
         String decryptText = encryptor.decrypt(encryptText);
-        System.out.printf(">>> %s\n", decryptText);
+        System.out.printf(">>> %s%n", decryptText);
 
         // then
         assertThat(decryptText).isNotNull().isNotBlank();
