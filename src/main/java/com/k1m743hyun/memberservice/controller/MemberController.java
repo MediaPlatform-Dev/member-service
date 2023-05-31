@@ -21,9 +21,9 @@ public class MemberController {
         service.createMember(requestDto);
     }
 
-    @GetMapping("/{memberId}")
-    public MemberDto getMember(@PathVariable String memberId) {
-        return service.getMember(memberId);
+    @GetMapping("/{memberNum}")
+    public MemberDto getMember(@PathVariable String memberNum) {
+        return service.getMember(memberNum);
     }
 
     @GetMapping
