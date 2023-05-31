@@ -1,24 +1,11 @@
 server:
-  port: 8081
+  port: 8080
 
-spring:
-  application:
-    name: "member"
-  datasource:
-    url: ${DB_CONNECTION_URL}
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: none
-  cloud:
-    openfeign:
-      client:
-        config:
-          order:
-            url: "order:8081"
-            logger-level: FULL
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+    encryptKey: k1m743hyun
+
 management:
   endpoints:
     web:
@@ -28,8 +15,28 @@ management:
   tracing:
     sampling:
       probability: 1.0
+
 logging:
   pattern:
     level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
   level:
     com.k1m743hyun.memberservice: DEBUG
+
+spring:
+  application:
+    name: "member"
+  datasource:
+    url: ENC(ya2PRZWTJuDG2pp4XVT7APPaS4sP0IOKBt3NeIEZyay6tc5mTYppyfnX2OzoHMDJ8CGnzASNsSCgpS05JPOiOQ==)
+    username: ENC(pzqMcuLassmcpZDDr2F8GE9H+EM/cX9O)
+    password: ENC(pzqMcuLassmcpZDDr2F8GE9H+EM/cX9O)
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  cloud:
+    openfeign:
+      client:
+        config:
+          order:
+            url: "order:8080"
+            logger-level: FULL
