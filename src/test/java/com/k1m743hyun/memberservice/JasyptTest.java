@@ -1,7 +1,6 @@
 package com.k1m743hyun.memberservice;
 
 import com.k1m743hyun.memberservice.config.JasyptConfig;
-import org.assertj.core.api.Assertions;
 import org.jasypt.encryption.StringEncryptor;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,7 +22,7 @@ public class JasyptTest {
     void encryptPlainTextTest() {
 
         // given
-        String plainText = "jdbc:mysql://172.90.5.8:3306/order_service";
+        String plainText = "";
 
         // when
         String encryptText = encryptor.encrypt(plainText);
@@ -37,7 +36,7 @@ public class JasyptTest {
     void decryptEncryptTest() {
 
         // given
-        String encryptText = "pzqMcuLassmcpZDDr2F8GE9H+EM/cX9O";
+        String encryptText = "";
 
         // when
         String decryptText = encryptor.decrypt(encryptText);
