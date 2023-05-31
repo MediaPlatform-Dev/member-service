@@ -31,7 +31,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
 	implementation 'io.micrometer:micrometer-tracing'
 	implementation 'io.micrometer:micrometer-tracing-bridge-otel'
-	implementation 'io.opentelemetry:opentelemetry-exporter-zipkin'
 	implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.4'
 
 	runtimeOnly 'com.mysql:mysql-connector-j'
