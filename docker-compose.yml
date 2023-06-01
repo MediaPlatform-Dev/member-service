@@ -2,9 +2,9 @@ version: "3"
 services:
   database:
     image: mysql:8.0.33
-    container_name: member_service_db
+    container_name: member_db
     environment:
-      - MYSQL_DATABASE=member_service_db
+      - MYSQL_DATABASE=member_db
       - MYSQL_ROOT_HOST=%
       - MYSQL_ROOT_PASSWORD=root
       - TZ='Asia/Seoul'
@@ -13,7 +13,7 @@ services:
     volumes:
       - ./db/data:/var/lib/mysql
     networks:
-      - member_service_network
+      - member_network
   webapp:
     build:
       context: .
@@ -21,15 +21,17 @@ services:
     restart: always
     depends_on:
       - database
+    links:
+      - database
     ports:
       - 8081:8081
     container_name: member_service
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/member_service_db
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/member_db
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     networks:
-      - member_service_network
+      - member_network
 #  redis:
 #    image: redis:alpine
 #    command: redis-server --port 6379
@@ -42,4 +44,4 @@ services:
 #      - 6379:6379
 
 networks:
-  member_service_network:
+  member_network:
