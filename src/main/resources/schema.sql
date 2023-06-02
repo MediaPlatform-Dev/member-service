@@ -1,7 +1,4 @@
-# DROP DATABASE IF EXISTS member_db;
-# CREATE DATABASE member_db;
-USE member_db;
-DROP TABLE IF EXISTS tbl_member CASCADE;
+DROP TABLE IF EXISTS tbl_member;
 CREATE TABLE tbl_member (
     member_num INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     member_id VARCHAR(100) NOT NULL UNIQUE,

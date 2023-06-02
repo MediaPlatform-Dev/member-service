@@ -29,13 +29,14 @@ spring:
     init:
       mode: always
   datasource:
-    url: ENC(ya2PRZWTJuDG2pp4XVT7APPaS4sP0IOKBt3NeIEZyay6tc5mTYppyfnX2OzoHMDJ8CGnzASNsSCgpS05JPOiOQ==)
-    username: ENC(pzqMcuLassmcpZDDr2F8GE9H+EM/cX9O)
-    password: ENC(pzqMcuLassmcpZDDr2F8GE9H+EM/cX9O)
+    url: ${MEMBER_DB_URL}
+    username: ${MEMBER_DB_USERNAME}
+    password: ${MEMBER_DB_PASSWORD}
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: none
+    defer-datasource-initialization: true
   cloud:
     openfeign:
       client:
