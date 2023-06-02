@@ -1,17 +1,19 @@
 version: "3"
 services:
   database:
-    image: mysql:8.0.33
+    image: mysql
     container_name: member_db
     environment:
       - MYSQL_DATABASE=member_db
       - MYSQL_ROOT_HOST=%
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=member
+      - MYSQL_PASSWORD=member
       - TZ='Asia/Seoul'
     ports:
       - 3306:3306
     volumes:
-      - ./db/data:/var/lib/mysql
+      - ./db/member/data:/var/lib/mysql
     networks:
       - member_network
   webapp:
@@ -24,7 +26,7 @@ services:
     links:
       - database
     ports:
-      - 8081:8081
+      - 8080:8080
     container_name: member_service
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/member_db
